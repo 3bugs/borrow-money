@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:libertyfund/etc/utils.dart';
 import 'package:libertyfund/etc/constants.dart' as Constants;
+import 'package:libertyfund/screens/application_form/application_form.dart';
 
 final FacebookLogin facebookLogin = FacebookLogin();
 
@@ -69,6 +70,15 @@ class _LoginMainState extends State<LoginMain> {
         alert(context, 'ผิดพลาด', result.errorMessage);
         break;
     }
+  }
+
+  void _handleClickNext() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ApplicationForm(),
+      ),
+    );
   }
 
   @override
@@ -189,7 +199,7 @@ class _LoginMainState extends State<LoginMain> {
                                     splashColor: Constants.App.HEADER_GRADIENT_COLOR_START,
                                     focusColor: Constants.App.HEADER_GRADIENT_COLOR_START,
                                     highlightColor: Constants.App.HEADER_GRADIENT_COLOR_START,
-                                    onTap: () {},
+                                    onTap: _handleClickNext,
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(
                                         getPlatformSize(Constants.App.BOX_BORDER_RADIUS),
